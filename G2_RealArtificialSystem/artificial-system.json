@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "21443255-538e-4d24-91da-791433b4dac7",
+		"name": "Cloud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Execute task",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"workflowExecutionId\": 1,\r\n    \"algorithm\": \r\n    {\r\n        \"id\": \"a25943c4-3f22-4715-82e7-581e1591481c\",\r\n        \"name\": \"Algoritmo2\",\r\n        \"description\": \"Descrição do algoritmo1.\",\r\n        \"command\": \"Comando - algoritmo1.\"\r\n    },\r\n    \"domainModel\":\r\n    {\r\n        \"id\": 1,\r\n        \"topology\": \"a\",\r\n        \"modelType\": 1\r\n    },\r\n    \"path\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://artificial-system.herokuapp.com/task/execute",
+					"protocol": "https",
+					"host": [
+						"artificial-system",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"task",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tasks file name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://artificial-system.herokuapp.com/task/1",
+					"protocol": "https",
+					"host": [
+						"artificial-system",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"task",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Experience content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://artificial-system.herokuapp.com/experience/1",
+					"protocol": "https",
+					"host": [
+						"artificial-system",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"experience",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

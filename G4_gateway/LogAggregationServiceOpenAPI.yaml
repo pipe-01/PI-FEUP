@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: Log Aggregation Service API
+  description: The api for the logging aggregation service.
+  version: 0.1
+servers:
+  - url: https://cosn-log-aggregation.herokuapp.com
+    description: Log Aggregation Service for the COSN system
+components:
+  schemas:
+    LogType:
+      type: string
+      enum:
+        - INFORMATION
+        - WARNING
+        - FATAL
+        - DEBUG
+        - OTHER
+    OperationType:
+      type: string
+      enum:
+        - CREATE
+        - UPDATE
+        - DELETE
+        - READ
+        - OTHER
+    Log:
+      type: object
+      required:
+        - logType
+        - operationType
+      properties:
+        logType:
+          $ref: '#/components/schemas/LogType'
+        operationType:
+          $ref: '#/components/schemas/OperationType'
+        message:
+          type: string
+paths:
+  /health:
+    get:
+      summary: Returns the status of the service
+      description: This endpoint returns status 200 to notify the Health Checking Service that it's working as intended.
+      responses:
+        '200':
+          description: The response if the service is working as intended.
+  /logs:
+    get:
+      summary: Returns a list of logs.
+      description: Returns the logs from the Log Aggregation Service
+      parameters:
+        - name: startTime
+          in: query
+          required: false
+          description: The start timestamp of the filtering
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+        - name: endTime
+          in: query
+          required: false
+          description: The ending timestamp of the filtering
+          schema:
+            type: integer
+            format: int64
+            minimum: 0
+      responses:
+        '200':    # status code
+          description: A JSON array of logs
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:          
+                  $ref: '#/components/schemas/Log'
+        '500':
+          description: An error occurred while retreiving the logs

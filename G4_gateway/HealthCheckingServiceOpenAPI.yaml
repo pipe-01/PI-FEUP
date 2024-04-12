@@ -1,0 +1,211 @@
+---
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: https://cosn-health-checking.herokuapp.com
+  description: Generated server url
+paths:
+  "/services":
+    get:
+      tags:
+      - service-controller
+      operationId: getService
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+    put:
+      tags:
+      - service-controller
+      operationId: updateService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/service"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+    delete:
+      tags:
+      - service-controller
+      operationId: deleteService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/service"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+  "/registerService":
+    post:
+      tags:
+      - service-controller
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/service"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+  "/logs":
+    get:
+      tags:
+      - service-log-controller
+      operationId: getLogs
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/serviceLog"
+    post:
+      tags:
+      - service-log-controller
+      operationId: addLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SimpleWrapper"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+    delete:
+      tags:
+      - service-log-controller
+      operationId: deleteLogs
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/serviceLog"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+  "/logsByService":
+    post:
+      tags:
+      - service-log-controller
+      operationId: getLogsByServiceID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SimpleWrapper"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+  "/logsByServiceTimestamp":
+    post:
+      tags:
+      - service-log-controller
+      operationId: getLogsByServiceTimestamp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/SimpleWrapper"
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            "*/*":
+              schema:
+                "$ref": "#/components/schemas/SimpleResponse"
+components:
+  schemas:
+    service:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        ip:
+          type: string
+        logs:
+          type: array
+          items:
+            "$ref": "#/components/schemas/serviceLog"
+    serviceLog:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+          format: int32
+    SimpleResponse:
+      type: object
+      properties:
+        sucess:
+          type: boolean
+        message:
+          type: string
+        asSuccess:
+          type: string
+          writeOnly: true
+        asError:
+          type: string
+          writeOnly: true
+    SimpleWrapper:
+      type: object
+      properties:
+        initialTimestamp:
+          type: string
+          format: date-time
+        endTimestamp:
+          type: string
+          format: date-time
+        ser:
+          "$ref": "#/components/schemas/service"
+        serLog:
+          "$ref": "#/components/schemas/serviceLog"

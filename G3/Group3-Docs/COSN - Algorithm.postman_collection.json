@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "ef71cf38-fddf-495b-bb40-c65f4f36767b",
+		"name": "COSN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "workflow",
+			"item": [
+				{
+					"name": "Creates a workflow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ids\": [\"a25943c4-3f22-4715-82e7-581e1591481c\",\"8dd064b7-c208-45c8-912a-67fd7409a74b\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of all workflows",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a workflow by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows/c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows",
+								"c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates a workflow",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ids\": [\"3d90b75d-7060-4825-bebe-eff4d8d7f765\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows/c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows",
+								"c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes an workflow",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows/c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows",
+								"c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "algorithm",
+			"item": [
+				{
+					"name": "Deletes an algorithm",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/algorithms/2f7dbae3-e2c5-4856-909f-abc26353564d",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"algorithms",
+								"2f7dbae3-e2c5-4856-909f-abc26353564d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of all algorithms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/algorithms",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"algorithms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creates an algorithm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Algoritmo8\",\n    \"command\": \"teste\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/algorithms",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"algorithms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates an algorithm",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/algorithmsa25943c4-3f22-4715-82e7-581e1591481c",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"algorithmsa25943c4-3f22-4715-82e7-581e1591481c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List a algorithm",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/algorithms/2f7dbae3-e2c5-4856-909f-abc26353564d",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"algorithms",
+								"2f7dbae3-e2c5-4856-909f-abc26353564d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1169 @@
+{
+	"info": {
+		"_postman_id": "eac4751b-260d-447d-a66a-f29d3e0e74e0",
+		"name": "COSN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "Health",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/health",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"1@gmail.com\",\r\n  \"password\": \"testing321\",\r\n  \"roleId\": 3\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/register",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "Register"
+					},
+					"response": []
+				},
+				{
+					"name": "Register User 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"2@gmail.com\",\r\n  \"password\": \"testing321\",\r\n  \"roleId\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/register",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "Register"
+					},
+					"response": []
+				},
+				{
+					"name": "Register User 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"3@gmail.com\",\r\n  \"password\": \"testing321\",\r\n  \"roleId\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/register",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"register"
+							]
+						},
+						"description": "Register"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token1\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"1@gmail.com\",\r\n  \"password\": \"testing321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token2\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"2@gmail.com\",\r\n  \"password\": \"testing321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign In 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token3\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"3@gmail.com\",\r\n  \"password\": \"testing321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "CreateCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Faro\",\n    \"gps\": { \n        \"type\":\"Point\",\n        \"coordinates\": [15.000, 42.000] \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/city",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/city/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"city",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Faro\",\n    \"gps\": { \n        \"type\":\"Point\",\n        \"coordinates\": [15.000, 42.000] \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/city/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"city",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/city",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"city"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token3}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/city/4",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"city",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StaticSensor",
+			"item": [
+				{
+					"name": "CreateStaticSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\": 1,\n    \"type\":\"Position\",\n    \"gps\": { \n        \"type\":\"Point\",\n        \"coordinates\": [14.000, 41.333] \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/sensor/static",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetStaticSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/static/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateStaticSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\": 1,\n    \"type\":\"Temperature\",\n    \"gps\": { \n        \"type\":\"Point\",\n        \"coordinates\": [12.000, 21.000] \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/sensor/static/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListStaticSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/static",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListStaticSensorCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/static/city?city_id=1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"city"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListStaticSensorCityType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/static/city_type?city_id=1&type=Position",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"city_type"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "Position"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListStaticSensorCityRadius",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/static/radius?city_id=1&radius=1000",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"radius"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "1"
+								},
+								{
+									"key": "radius",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListStaticSensorCityRadiusType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/static/radius_type?city_id=1&type=Temperature&radius=1000",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"radius_type"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "Temperature"
+								},
+								{
+									"key": "radius",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteStaticSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}/sensor/static/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"static",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MobileSensor",
+			"item": [
+				{
+					"name": "CreateMobileSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\": 1,\n    \"type\":\"Pressure\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/sensor/mobile",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMobileSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/mobile/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateMobileSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"city\": 1,\n    \"type\":\"Force\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/sensor/mobile/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListMobileSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/mobile",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListMobileSensorCity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/mobile/city?city_id=1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile",
+								"city"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListMobileSensorCityType",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token1}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/mobile/city_type?city_id=1&type=Temperature",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile",
+								"city_type"
+							],
+							"query": [
+								{
+									"key": "city_id",
+									"value": "1"
+								},
+								{
+									"key": "type",
+									"value": "Temperature"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMobileSensor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token3}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/sensor/mobile/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"sensor",
+								"mobile",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

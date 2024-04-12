@@ -1,0 +1,483 @@
+{
+  "swaggerDoc": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Algorithms Service",
+      "version": "1.0.0",
+      "description": "APIs available for the Algorithms Service."
+    },
+    "paths": {
+      "/algorithms": {
+        "post": {
+          "description": "Creates a new algorithm.",
+          "requestBody": {
+            "description": "Optional description in *Markdown*",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewAlgorithmRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "The newly created algorithm.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Algorithm"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        },
+        "get": {
+          "description": "Returns all algorithms.",
+          "responses": {
+            "200": {
+              "description": "The list of algorithms available on the server",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Algorithm"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        }
+      },
+      "/algorithms/{algorithmId}": {
+        "get": {
+          "description": "Retrieves an algorithm by it's ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minimum": 1
+              },
+              "description": "The algorithm's ID"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The algorithm with the informed ID.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Algorithm"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid algorithm ID."
+            },
+            "404": {
+              "description": "No algorithms could be found with the informed ID."
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        },
+        "delete": {
+          "description": "Deletes an algorithm by it's ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minimum": 1
+              },
+              "description": "The algorithm's ID."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The algorithm was deleted."
+            },
+            "400": {
+              "description": "Invalid algorithm ID."
+            },
+            "404": {
+              "description": "No algorithms could be found with the informed ID."
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        },
+        "put": {
+          "description": "Updates an algorithm by it's ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minimum": 1
+              },
+              "description": "The algorithm's ID."
+            }
+          ],
+          "requestBody": {
+            "description": "Optional description in *Markdown*",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateAlgorithmRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "The algorithm was updated."
+            },
+            "400": {
+              "description": "Invalid algorithm ID."
+            },
+            "404": {
+              "description": "No algorithms could be found with the informed ID."
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        }
+      },
+      "/workflows": {
+        "post": {
+          "description": "Creates a new workflow.",
+          "requestBody": {
+            "description": "Optional description in *Markdown*",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewWorkflowRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "The newly created workflow.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Workflow"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        },
+        "get": {
+          "description": "Returns all workflows.",
+          "responses": {
+            "200": {
+              "description": "The list of workflows available on the server",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Workflow"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        }
+      },
+      "/workflows/{workflowId}": {
+        "get": {
+          "description": "Retrieves a workflow by it's ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minimum": 1
+              },
+              "description": "The workflow's ID"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The workflow with the informed ID.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Workflow"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid algorithm ID."
+            },
+            "404": {
+              "description": "No algorithms could be found with the informed ID."
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        },
+        "delete": {
+          "description": "Deletes a workflow by it's ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minimum": 1
+              },
+              "description": "The workflow's ID."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "The workflow was deleted."
+            },
+            "400": {
+              "description": "Invalid workflow ID."
+            },
+            "404": {
+              "description": "No workflows could be found with the informed ID."
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        },
+        "put": {
+          "description": "Updates a workflow by it's ID.",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "schema": {
+                "type": "string",
+                "minimum": 1
+              },
+              "description": "The algorithm's ID."
+            }
+          ],
+          "requestBody": {
+            "description": "Optional description in *Markdown*",
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateWorkflowRequest"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "The algorithm was updated."
+            },
+            "400": {
+              "description": "Invalid algorithm ID."
+            },
+            "404": {
+              "description": "No algorithms could be found with the informed ID."
+            },
+            "500": {
+              "description": "An unexpected error has occurred."
+            }
+          }
+        }
+      },
+      "/health": {
+        "get": {
+          "description": "Retrieves health status.",
+          "responses": {
+            "200": {
+              "description": "The service is available",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/HelthCheckResponse"
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "The service is not available."
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Algorithm": {
+          "type": "object",
+          "required": [
+            "id",
+            "name",
+            "description",
+            "command",
+            "createdAt",
+            "updatedAt"
+          ],
+          "properties": {
+            "id": {
+              "description": "The ID of the algorithm.",
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the algorithm.",
+              "type": "string"
+            },
+            "description": {
+              "description": "The description of the algorithm.",
+              "type": "string"
+            },
+            "command": {
+              "description": "The command that executes the algorithm.",
+              "type": "string"
+            },
+            "createdAt": {
+              "description": "Date of creation",
+              "type": "string"
+            },
+            "updatedAt": {
+              "description": "Date of the last update",
+              "type": "string"
+            }
+          }
+        },
+        "Workflow": {
+          "type": "object",
+          "required": [
+            "id",
+            "createdAt",
+            "updatedAt"
+          ],
+          "properties": {
+            "id": {
+              "description": "The ID of the workflow.",
+              "type": "string"
+            },
+            "createdAt": {
+              "description": "Date of creation.",
+              "type": "string"
+            },
+            "updatedAt": {
+              "description": "Date of the last update",
+              "type": "string"
+            }
+          }
+        },
+        "NewAlgorithmRequest": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "The unique name of the algorithm.",
+              "type": "string"
+            },
+            "command": {
+              "description": "The command that executes the algorithm.",
+              "type": "string"
+            }
+          }
+        },
+        "UpdateAlgorithmRequest": {
+          "type": "object",
+          "required": [
+            "name",
+            "command",
+            "description"
+          ],
+          "properties": {
+            "name": {
+              "description": "The name of the algorithm.",
+              "type": "string"
+            },
+            "command": {
+              "description": "The command that executes the algorithm.",
+              "type": "string"
+            },
+            "description": {
+              "description": "The description of the algorithm.",
+              "type": "string"
+            }
+          }
+        },
+        "UpdateWorkflowRequest": {
+          "type": "object",
+          "required": [
+            "ids"
+          ],
+          "properties": {
+            "ids": {
+              "description": "A set of ids of existing algorithms.",
+              "type": "string"
+            }
+          }
+        },
+        "NewWorkflowRequest": {
+          "type": "object",
+          "required": [
+            "ids"
+          ],
+          "properties": {
+            "ids": {
+              "description": "A set of ids of existing algorithms.",
+              "type": "string"
+            }
+          }
+        },
+        "HelthCheckResponse": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "description": "Possible value are: UP or DOWN",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "tags": []
+  },
+  "customOptions": {}
+};

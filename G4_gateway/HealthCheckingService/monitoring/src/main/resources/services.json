@@ -1,0 +1,37 @@
+[
+    {
+        "name": "ALGORITMOS",
+        "ip": "algorithmservice.herokuapp.com",
+        "port": "99"
+    },
+    {
+        "name": "MAS_CONTROLLER",
+        "ip": "mascontroller.herokuapp.com/actuator/",
+        "port": "99"
+    },
+    {
+        "name": "LOG_AGGREGATION",
+        "ip": "cosn-log-aggregation.herokuapp.com",
+        "port": "99"
+    }, 
+    {
+        "name": "CITY_SERVICE",
+        "ip": "cosn-city-service.herokuapp.com",
+        "port": "99"
+    },
+    {
+        "name": "DOMAIN_MODEL_SERVICE",
+        "ip": "domainservice20220116221152.azurewebsites.net/api/",
+        "port": "99"
+    },
+    {
+        "name": "REAL_SYSTEM_SERVICE",
+        "ip": "real-system.herokuapp.com",
+        "port": "99"
+    },
+    {
+        "name": "ARTIFICIAL_SYSTEM_SERVICE",
+        "ip": "artificial-system.herokuapp.com",
+        "port": "99"
+    }
+]

@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "c65d2e96-4ee4-48dc-a877-98fdaadb4c7f",
+		"name": "CONS - MAS Controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "DomainModel",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"topology\": \"topology\",\n  \"modelType\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://domainservice20220116221152.azurewebsites.net/api/DomainModel",
+							"protocol": "https",
+							"host": [
+								"domainservice20220116221152",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"DomainModel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://domainservice20220116221152.azurewebsites.net/api/DomainModel",
+							"protocol": "https",
+							"host": [
+								"domainservice20220116221152",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"DomainModel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwiaWF0IjoxNjQyNTUwNjA1LCJzdWIiOiJkcGFudGFAdGVzdC5wdCIsImlzcyI6IkdBVEVXQVkiLCJleHAiOjE2NDI1Nzk0MDV9.t0lfIU1Ak8PunhcCe8s4iKVqm3rIbY1S4a7WVN-xWl4\n\n",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "AuthToken",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwiaWF0IjoxNjQyNTUwNjA1LCJzdWIiOiJkcGFudGFAdGVzdC5wdCIsImlzcyI6IkdBVEVXQVkiLCJleHAiOjE2NDI1Nzk0MDV9.t0lfIU1Ak8PunhcCe8s4iKVqm3rIbY1S4a7WVN-xWl4",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://domainservice20220116221152.azurewebsites.net/api/DomainModel/GetdomainmodelById/1",
+							"protocol": "https",
+							"host": [
+								"domainservice20220116221152",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"DomainModel",
+								"GetdomainmodelById",
+								"1"
+							],
+							"query": [
+								{
+									"key": "AuthToken",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwiaWF0IjoxNjQyNTUwNjA1LCJzdWIiOiJkcGFudGFAdGVzdC5wdCIsImlzcyI6IkdBVEVXQVkiLCJleHAiOjE2NDI1Nzk0MDV9.t0lfIU1Ak8PunhcCe8s4iKVqm3rIbY1S4a7WVN-xWl4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artificial System ",
+			"item": [
+				{
+					"name": "Mock- execute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"workflowExecutionId\":1,\n   \"path\":null,\n   \"algorithm\":{\n      \"id\":\"a25943c4-3f22-4715-82e7-581e1591481c\",\n      \"name\":\"Algoritmo1\",\n      \"description\":\"Descrição do algoritmo1.\",\n      \"command\":\"Comando - algoritmo1.\"\n   },\n   \"domainModel\":{\n      \"id\":1,\n      \"topology\":\"a\",\n      \"modelType\":1\n   }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://61e438dcfbee6800175eb265.mockapi.io/api/artificial-system",
+							"protocol": "https",
+							"host": [
+								"61e438dcfbee6800175eb265",
+								"mockapi",
+								"io"
+							],
+							"path": [
+								"api",
+								"artificial-system"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "execute",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "accept",
+								"value": "*/*",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"workflowExecutionId\": 30,\n  \"algorithm\": {\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"command\": \"string\"\n  },\n  \"domainModel\": null,\n  \"path\": \"text.txt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://artificial-system.herokuapp.com/task/execute",
+							"protocol": "https",
+							"host": [
+								"artificial-system",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"task",
+								"execute"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workflow",
+			"item": [
+				{
+					"name": "Find by Id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows/findById",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows",
+								"findById"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/workflows/",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"workflows",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "algorithmservice health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://algorithmservice.herokuapp.com/health",
+							"protocol": "https",
+							"host": [
+								"algorithmservice",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Gateway",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"dpanta@test.pt\",\n  \"password\": \"test@123\",\n  \"roleId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/register",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "run workflow",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AuthToken",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwiaWF0IjoxNjQyNTQ4NjQ1LCJzdWIiOiJkcGFudGFAdGVzdC5wdCIsImlzcyI6IkdBVEVXQVkiLCJleHAiOjE2NDI1Nzc0NDV9.v-bML_vnsobH71lAxpTnMqV1EtlUEgj7KeDyZUXn8dE",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"workflowId\": \"string\",\n  \"domainModelId\": \"string\",\n  \"description\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/runWorkflow",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"runWorkflow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"dpanta@test.pt\",\n  \"password\": \"test@123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cosn-api-gateway.herokuapp.com/roles",
+							"protocol": "https",
+							"host": [
+								"cosn-api-gateway",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Find Workflows by id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"workflowExecutionId\": 23,  \n  \"userId\": \"test@test.pt\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mascontroller.herokuapp.com/workflow/findById",
+					"protocol": "https",
+					"host": [
+						"mascontroller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"workflow",
+						"findById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Run Workflow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "AuthToken",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI0IiwiaWF0IjoxNjQyNTk5MTIyLCJzdWIiOiJkcGFudGFAdGVzdC5wdCIsImlzcyI6IkdBVEVXQVkiLCJleHAiOjE2NDI2Mjc5MjJ9._VUbK5ddQnqaGsbK11An9kR8fKeb40uHfefMt2kzyI8",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"workflowId\": \"c91efcdf-f3c6-48bd-b06a-adbb8d37e9a6\",\n  \"domainModelId\": \"5\",\n  \"userId\": \"test@test.pt\",\n  \"description\": \"Execution of the first workflow.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mascontroller.herokuapp.com/workflow/run",
+					"protocol": "https",
+					"host": [
+						"mascontroller",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"workflow",
+						"run"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

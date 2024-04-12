@@ -1,0 +1,1290 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "City Service API",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://cosn-city-service.herokuapp.com"
+    }
+  ],
+  "security": [
+    {
+      "authorization": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "City"
+    },
+    {
+      "name": "StaticSensor"
+    },
+    {
+      "name": "MobileSensor"
+    },
+    {
+      "name": "Health"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "summary": "CheckServiceHealth",
+        "description": "Check if the service is running",
+        "operationId": "CheckServiceHealth",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/city": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "summary": "ListCity",
+        "description": "Lists all cities",
+        "operationId": "ListCity",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailCitySchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "City"
+        ],
+        "summary": "CreateCity",
+        "description": "Creates a new City",
+        "operationId": "CreateCity",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CitySchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailCitySchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/city/{cityId}": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "summary": "GetCity",
+        "description": "Gets data from a specific City given it's Id",
+        "operationId": "GetCity",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailCitySchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "City"
+        ],
+        "summary": "DeleteCity",
+        "description": "Deletes data from a specific City given it's Id",
+        "operationId": "DeleteCity",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "City"
+        ],
+        "summary": "UpdateCity",
+        "description": "Update data from a specific City given it's Id",
+        "operationId": "UpdateCity",
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CitySchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailCitySchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/static": {
+      "get": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "ListStaticSensor",
+        "description": "Lists all existing Static Sensors",
+        "operationId": "ListStaticSensor",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "CreateStaticSensor",
+        "description": "Creates a new Static Sensor",
+        "operationId": "CreateStaticSensor",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaticSensorSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/static/{sensorId}": {
+      "get": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "GetStaticSensor",
+        "description": "Gets data from a specific Static Sensor given it's Id",
+        "operationId": "GetStaticSensor",
+        "parameters": [
+          {
+            "name": "sensorId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "DeleteStaticSensor",
+        "description": "Deletes data from a specific Static Sensor given it's Id",
+        "operationId": "DeleteStaticSensor",
+        "parameters": [
+          {
+            "name": "sensorId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "UpdateStaticSensor",
+        "description": "Update data from a specific Static Sensor given it's Id",
+        "operationId": "UpdateStaticSensor",
+        "parameters": [
+          {
+            "name": "sensorId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StaticSensorSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/static/city": {
+      "get": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "ListStaticSensorCity",
+        "description": "Lists all existing Static Sensors in a certain City",
+        "operationId": "ListStaticSensorCity",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/static/city_type": {
+      "get": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "ListStaticSensorCityType",
+        "description": "Lists all existing Static Sensors of a defined Type in a certain City",
+        "operationId": "ListStaticSensorCityType",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "Position"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/static/radius": {
+      "get": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "ListStaticSensorCityRadius",
+        "description": "Lists all existing Static Sensors in a certain City within a specified radius",
+        "operationId": "ListStaticSensorCityRadius",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/static/radius_type": {
+      "get": {
+        "tags": [
+          "StaticSensor"
+        ],
+        "summary": "ListStaticSensorCityRadiusType",
+        "description": "Lists all existing Static Sensors of a defined Type in a certain City within a specified radius",
+        "operationId": "ListStaticSensorCityRadiusType",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "Position"
+            }
+          },
+          {
+            "name": "radius",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailStaticSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/mobile": {
+      "get": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "ListMobileSensor",
+        "description": "Lists all existing Mobile Sensors",
+        "operationId": "ListMobileSensor",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailMobileSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "CreateMobileSensor",
+        "description": "Creates a new Mobile Sensor",
+        "operationId": "CreateMobileSensor",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileSensorSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailMobileSensorSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/mobile/{sensorId}": {
+      "get": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "GetMobileSensor",
+        "description": "Gets data from a specific Mobile Sensor given it's Id",
+        "operationId": "GetMobileSensor",
+        "parameters": [
+          {
+            "name": "sensorId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailMobileSensorSchema"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "DeleteMobileSensor",
+        "description": "Deletes data from a specific Mobile Sensor given it's Id",
+        "operationId": "DeleteMobileSensor",
+        "parameters": [
+          {
+            "name": "sensorId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "patch": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "UpdateMobileSensor",
+        "description": "Update data from a specific Mobile Sensor given it's Id",
+        "operationId": "UpdateMobileSensor",
+        "parameters": [
+          {
+            "name": "sensorId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MobileSensorSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetailMobileSensorSchema"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/mobile/city": {
+      "get": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "ListMobileSensorCity",
+        "description": "Lists all existing Mobile Sensors in a certain City",
+        "operationId": "ListMobileSensorCity",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailMobileSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/sensor/mobile/city_type": {
+      "get": {
+        "tags": [
+          "MobileSensor"
+        ],
+        "summary": "ListMobileSensorCityType",
+        "description": "Lists all existing Mobile Sensors of a defined Type in a certain City",
+        "operationId": "ListMobileSensorCityType",
+        "parameters": [
+          {
+            "name": "city_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "Temperature"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetailMobileSensorSchema"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CitySchema": {
+        "title": "CitySchema",
+        "required": [
+          "gps",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "gps": {
+            "$ref": "#/components/schemas/GpsSchema"
+          }
+        },
+        "example": {
+          "name": "Porto",
+          "gps": {
+            "type": "Point",
+            "coordinates": [
+              14,
+              41
+            ]
+          }
+        }
+      },
+      "DetailCitySchema": {
+        "title": "DetailCitySchema",
+        "required": [
+          "gps",
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "gps": {
+            "$ref": "#/components/schemas/GpsSchema"
+          }
+        },
+        "example": {
+          "id": 1,
+          "name": "Porto",
+          "gps": {
+            "type": "Point",
+            "coordinates": [
+              14,
+              41
+            ]
+          }
+        }
+      },
+      "GpsSchema": {
+        "title": "GpsSchema",
+        "required": [
+          "coordinates",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "coordinates": {
+            "type": "array",
+            "description": "",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "example": {
+          "type": "Point",
+          "coordinates": [
+            14,
+            41
+          ]
+        }
+      },
+      "StaticSensorSchema": {
+        "title": "StaticSensorSchema",
+        "required": [
+          "city",
+          "gps",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "gps": {
+            "$ref": "#/components/schemas/GpsSchema"
+          }
+        },
+        "example": {
+          "city": 3,
+          "type": "Temperature",
+          "gps": {
+            "type": "Point",
+            "coordinates": [
+              14,
+              41
+            ]
+          }
+        }
+      },
+      "DetailStaticSensorSchema": {
+        "title": "DetailStaticSensorSchema",
+        "required": [
+          "city",
+          "gps",
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "gps": {
+            "$ref": "#/components/schemas/GpsSchema"
+          }
+        },
+        "example": {
+          "id": 1,
+          "city": 3,
+          "type": "Temperature",
+          "gps": {
+            "type": "Point",
+            "coordinates": [
+              14,
+              41
+            ]
+          }
+        }
+      },
+      "MobileSensorSchema": {
+        "title": "MobileSensorSchema",
+        "required": [
+          "city",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "city": 3,
+          "type": "Temperature"
+        }
+      },
+      "DetailMobileSensorSchema": {
+        "title": "DetailMobileSensorSchema",
+        "required": [
+          "city",
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "city": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 1,
+          "city": 3,
+          "type": "Temperature"
+        }
+      }
+    },
+    "securitySchemes": {
+      "authorization": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
